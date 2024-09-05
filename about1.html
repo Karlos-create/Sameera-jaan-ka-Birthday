@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General Styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #111;
+            flex-direction: column;
+        }
+
+        /* Button Styles */
+        .light-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bt {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #111;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .button-holder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            width: 100px;
+            background-color: #0a0a0a;
+            border-radius: 5px;
+            color: #0f0f0f;
+            font-weight: 700;
+            transition: 300ms;
+            outline: #0f0f0f 2px solid;
+            outline-offset: 20;
+        }
+
+        .button-image {
+            width: 100px; /* Adjust the width of the image */
+            height: 100px; /* Adjust the height of the image */
+            border-radius: 10%; /* Optional: makes the image slightly rounded */
+            object-fit: cover; /* Ensures the image fits within the set dimensions */
+            object-position: center; /* Centers the image within the box */
+            filter: blur(5px); /* Applies a slight blur to the image */
+            transition: filter 0.3s ease; /* Smooth transition for the blur effect */
+        }
+
+        .bt:hover .button-image {
+            filter: blur(0); /* Removes the blur on hover */
+        }
+
+        .bt p {
+            margin: 0;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        /* Light Button Styles */
+        .light-button button.bt .button-holder svg {
+            height: 50px;
+            fill: #0f0f0f;
+            transition: 300ms;
+        }
+
+        .light-button button.bt .light-holder {
+            position: absolute;
+            height: 200px;
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .light-button button.bt .light-holder .dot {
+            position: absolute;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background-color: #0a0a0a;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        .light-button button.bt .light-holder .light {
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
+            background: transparent;
+        }
+
+        .light-button button.bt:hover .button-holder svg {
+            fill: rgb(169, 91, 229);
+        }
+
+        .light-button button.bt:hover .button-holder {
+            color: rgb(237, 88, 242);
+            outline: rgb(216, 88, 242) 2px solid;
+            outline-offset: 2px;
+        }
+
+        .light-button button.bt:hover .light-holder .light {
+            background: rgb(255, 255, 255);
+            background: linear-gradient(
+                180deg,
+                rgb(201, 88, 242) 0%,
+                rgba(255, 255, 255, 0) 75%,
+                rgba(255, 255, 255, 0) 100%
+            );
+        }
+        /* From Uiverse.io by gharsh11032000 */ 
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover .card__content {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.card:hover svg {
+  scale: 0;
+  transform: rotate(-45deg);
+}
+/* From Uiverse.io by codebykay101 */ 
+/* From Uiverse.io by codebykay101 */ 
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .glass {
+  position: relative;
+  width: 150px; /* Reduced width */
+  height: 150px; /* Reduced height */
+  background: linear-gradient(#fff2, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.25); /* Adjusted shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 10px;
+  margin: 0 -30px; /* Adjusted margin */
+  backdrop-filter: blur(8px); /* Reduced blur */
+  transform: rotate(calc(var(--r) * 1deg));
+}
+
+.container:hover .glass {
+  transform: rotate(0deg);
+  margin: 0 5px; /* Adjusted margin */
+}
+
+.container .glass::before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Reduced height */
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 0.8em; /* Adjusted font size */
+}
+
+.container .glass svg {
+  font-size: 1.5em; /* Reduced icon size */
+  fill: #fff;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 600px) {
+  .container .glass {
+    width: 120px; /* Further reduced width for smaller screens */
+    height: 120px; /* Further reduced height for smaller screens */
+  }
+
+  .container .glass::before {
+    height: 25px; /* Further reduced height */
+    font-size: 0.7em; /* Further adjusted font size */
+  }
+
+  .container .glass svg {
+    font-size: 1.2em; /* Further reduced icon size */
+  }
+}
+
+#max{
+    height: 150px;
+    width: 150px;
+    background-size: contain;
+    background-image: none;
+    background-origin: content-box;
+    
+}
+.glass{
+    
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+    </style>
+    <style>
+            /* From Uiverse.io by doniaskima */ 
+.btn-17,
+.btn-17 *,
+.btn-17 :after,
+.btn-17 :before,
+.btn-17:after,
+.btn-17:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-17 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.btn-17:disabled {
+  cursor: default;
+}
+
+.btn-17:-moz-focusring {
+  outline: auto;
+}
+
+.btn-17 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-17 [hidden] {
+  display: none;
+}
+
+.btn-17 {
+  border-radius: 99rem;
+  border-width: 2px;
+  padding: 0.8rem 3rem;
+  z-index: 0;
+}
+
+.btn-17,
+.btn-17 .text-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-17 .text-container {
+  display: block;
+  mix-blend-mode: difference;
+}
+
+.btn-17 .text {
+  display: block;
+  position: relative;
+}
+
+.btn-17:hover .text {
+  -webkit-animation: move-up-alternate 0.3s forwards;
+  animation: move-up-alternate 0.3s forwards;
+}
+
+@-webkit-keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.btn-17:after,
+.btn-17:before {
+  --skew: 0.2;
+  background: #fff;
+  content: "";
+  display: block;
+  height: 102%;
+  left: calc(-50% - 50% * var(--skew));
+  pointer-events: none;
+  position: absolute;
+  top: -104%;
+  transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.btn-17:after {
+  --progress: 0%;
+  left: calc(50% + 50% * var(--skew));
+  top: 102%;
+  z-index: -1;
+}
+
+.btn-17:hover:before {
+  --progress: 100%;
+}
+
+.btn-17:hover:after {
+  --progress: -102%;
+}
+body{
+  background-color: #000;
+  color:rgb(255, 0, 255);
+}
+
+</style>
+    
+</head>
+<body>
+
+  <i><h1>Hover them : )</h1></i>
+  
+<div class="container">
+  <div data-text="S" style="--r:-5;" class="glass">
+    <img id="max" src="img/10.jpg" alt="">
+    
+</div>
+<div data-text="A" style="--r:5;" class="glass">
+      <img id="max" src="img/14.jpg" alt="">
+      
+    </div>
+    <div data-text="M " style="--r:25;" class="glass">
+        
+        <img id="max" src="img/45.jpg" alt="">
+  </div> 
+</div><div class="container">
+  <div data-text="E" style="--r:-5;" class="glass">
+    <img id="max" src="img/rn.jpg" alt="">
+    
+</div>
+<div data-text="E" style="--r:5;" class="glass">
+      <img id="max" src="img/31.jpg" alt="">
+      
+    </div>
+    <div data-text="R " style="--r:25;" class="glass">
+        
+        <img id="max" src="img/nr.jpg" alt="">
+  </div> 
+</div><div class="container">
+  <div data-text="A" style="--r:-5;" class="glass">
+    <img id="max" src="img/36.jpg" alt="">
+    
+</div>
+<div data-text="HAPPY" style="--r:5;" class="glass">
+      <img id="max" src="img/38.jpg" alt="">
+      
+    </div>
+    <div data-text="BIRTHDAY! " style="--r:25;" class="glass">
+        
+        <img id="max" src="img/43.jpg" alt="">
+  </div>
+</div>
+
+<br><br>
+    <div class="card">
+       <img src="img/21.jpg" alt="">
+        <div class="card__content">
+          <p class="card__title">Happiest Birthday Sameera jaan-e-jigar.
+          </p>
+
+        </div>
+      </div><br>
+     <a href="about2.html"> <button class="btn-17">
+        <span class="text-container">
+          <span class="text">Proceed</span>
+        </span>
+      </button></a>
+
+</body>
+</html>

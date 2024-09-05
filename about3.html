@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* From Uiverse.io by Z4drus */ 
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.button-3d {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px;
+  min-width: 4em;
+  min-height: 4em;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.button-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 8px 16px;
+  transform: translateY(0);
+  color: #fff;
+  background-image: linear-gradient(145deg, #6a11cb, #2575fc);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  transition: transform 0.3s, border-radius 0.3s, background 10s;
+}
+
+.button-3d:active .button-top {
+  border-radius: 10px 10px 8px 8px / 8px;
+  transform: translateY(2px);
+  background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+}
+
+.button-bottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 20px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  transition: border-radius 0.2s, padding-top 0.2s;
+}
+
+.button-base {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  left: 0;
+  border-radius: 20px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 2px 2px rgba(0, 0, 0, 0.25);
+  transition: border-radius 0.2s, padding-top 0.2s;
+}
+
+.button-3d:active .button-bottom {
+  border-radius: 10px 10px 8px 8px / 8px;
+  padding-top: 0;
+}
+
+.button-3d:active .button-base {
+  border-radius: 10px 10px 8px 8px / 8px;
+}
+/*  */
+.card {
+  position: relative;
+  width: 160px; /* Width remains comfortable for mobile */
+  height: 300px; /* Increased height */
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 10px; /* Adjusted padding */
+  gap: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: auto; /* Centers the card */
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 190px; /* Adjusted gradient size */
+  height: 330px; /* Increased gradient height */
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.9); /* Adjusted scale */
+  filter: blur(15px); /* Slightly less blur for smaller screens */
+}
+
+.heading {
+  font-size: 18px; /* Adjusted font size */
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.card p:not(.heading) {
+  font-size: 12px; /* Adjusted paragraph font size */
+}
+
+.card p:last-child {
+  color: #e81cff;
+  font-weight: 600;
+}
+
+.card:hover::after {
+  filter: blur(25px); /* Adjusted hover blur */
+}
+
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(1.3) scaleY(0.75); /* Adjusted hover effect */
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .card {
+    width: 260px; /* Mobile width */
+    height: 480px; /* Mobile increased height */
+  }
+
+  .card::before {
+    width: 170px;
+    height: 290px;
+  }
+
+  .heading {
+    font-size: 16px; /* Smaller font size for mobile */
+  }
+
+  .card p:not(.heading) {
+    font-size: 11px; /* Smaller paragraph size */
+  }
+}
+/*  */
+.book {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 280px; /* Increased width */
+  height: 650px; /* Increased height */
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  transform: preserve-3d;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  margin: auto; /* Centers the card */
+  margin-top: 20px;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: rgb(199, 0, 0);
+ 
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.7s; /* Smoother transition */
+  transform-origin: left center; /* Adjust the rotation axis */
+  box-shadow: 1px 1px 12px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.book:hover .cover {
+  transition: all 0.7s;
+  transform: rotateY(-180deg); /* Open the cover fully */
+}
+
+p {
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 10px;
+  overflow-y: auto; /* Add scrolling for text */
+  max-height: 90%; /* Constrain text height */
+  word-wrap: break-word; /* Ensure text breaks properly */
+  text-align: center; /* Center the text inside */
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 600px) {
+  .book {
+    width: 95%;
+    height: 650px; /* Adjusted height for mobile */
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+
+body{
+  background-color: #000;
+}
+
+</style>
+<body>
+
+    <h1>abt3</h1>
+    <div class="book">
+      <p>HAPPY BIRTHDAY SAMEERAAAAAAAAAAAAAAAAAAAAAAAAAA. 💋💋💋💋💋💋You are the only person who I care for🥹🫴🏻. I don't give a fuck of anyone🫡. I just want you and you only I don't want expensive companies I just want you to be with me till our last breath ❤️🫁😂🥀.you are the person who give me hope to grow to be motivated all the time you appreciate me 😭😭❤️❤️❤️ you never put me down in my worst 🌎❤️. Sameera you actually did wht you said to me you always care bout me 😭💕 and you always try to fix me whenever I screw up things you always put your all efforts and you succeed ❤️😭🌹🍃in this. I just want to say I never seen a girl like you who never care bout herself but she always do everything for those who don't care bout you but surely now no one will hurt you anymore if somebody try yahiiii patakkk ke chodddeengeee 🤚🏻😂🗿🌝✨💋💋💋.Sameera I can't believe you are the girl who took the responsibility of your family but no one will understand but I do 😭😭🥀 other girl don't give a fuck bout</p>
+      <div class="cover">
+          <p>Feel free to touch me</p>
+      </div>
+     </div>
+  
+ 
+<div class="button-container">
+  <a href="funto.html"><button class="button-3d">
+    <div class="button-top">
+      <span class="material-icons">❮</span>
+    </div>
+    <div class="button-bottom"></div>
+    <div class="button-base"></div>
+  </button></a>
+  <a href="about4.html"><button class="button-3d">
+    <div class="button-top">
+      <span class="material-icons">❯</span>
+    </div>
+    <div class="button-bottom"></div>
+    <div class="button-base"></div>
+  </button></a>
+</div>
+
+</body>
+</html>

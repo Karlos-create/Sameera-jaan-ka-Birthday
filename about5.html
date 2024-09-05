@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* From Uiverse.io by Z4drus */ 
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.button-3d {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px;
+  min-width: 4em;
+  min-height: 4em;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.button-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 8px 16px;
+  transform: translateY(0);
+  color: #fff;
+  background-image: linear-gradient(145deg, #6a11cb, #2575fc);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  transition: transform 0.3s, border-radius 0.3s, background 10s;
+}
+
+.button-3d:active .button-top {
+  border-radius: 10px 10px 8px 8px / 8px;
+  transform: translateY(2px);
+  background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+}
+
+.button-bottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 20px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  transition: border-radius 0.2s, padding-top 0.2s;
+}
+
+.button-base {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  left: 0;
+  border-radius: 20px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 2px 2px rgba(0, 0, 0, 0.25);
+  transition: border-radius 0.2s, padding-top 0.2s;
+}
+
+.button-3d:active .button-bottom {
+  border-radius: 10px 10px 8px 8px / 8px;
+  padding-top: 0;
+}
+
+.button-3d:active .button-base {
+  border-radius: 10px 10px 8px 8px / 8px;
+}
+/*  */
+.book {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 280px; /* Increased width */
+  height: 650px; /* Increased height */
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  transform: preserve-3d;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  margin: auto; /* Centers the card */
+  margin-top: 20px;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: rgb(153, 7, 210);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.7s; /* Smoother transition */
+  transform-origin: left center; /* Adjust the rotation axis */
+  box-shadow: 1px 1px 12px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.book:hover .cover {
+  transition: all 0.7s;
+  transform: rotateY(-180deg); /* Open the cover fully */
+}
+
+p {
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 10px;
+  overflow-y: auto; /* Add scrolling for text */
+  max-height: 90%; /* Constrain text height */
+  word-wrap: break-word; /* Ensure text breaks properly */
+  text-align: center; /* Center the text inside */
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 600px) {
+  .book {
+    width: 95%;
+    height: 650px; /* Adjusted height for mobile */
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+body{
+  background-color: #000;
+}
+
+</style>
+<body>
+
+    <h1>abt5</h1>
+    <div class="book">
+      <p>FUNNY PART BEGGIN,  Ab mujhe ek basha me bata do ke us batle ko bhulne ka kya logi 😭😭😭😭😭are bhagaao gyaaa yarrr nanga aadmi tha manhoos tha yarr Gaya voh lala 🥹🥹 ab to tm azaad ho kisi cheez ki parwaah nhi mene rehaan ki ammi se bhi baat krli hai ke voh bhul chuki hai batle ko ab aap Rehan ke sath hath mangne ajaao 🥹🥹🥹🥹🥹🥹🫴🏻🫴🏻🫴🏻🫴🏻😂😂😂💋💋💋💋Rehan hi Sameera ko sambhaal sakta hai voh tmhe kitna smjhta hai baji bhi bolta hai mtlb bhenchod hai 😂😂🫴🏻🫴🏻🤚🏻🤚🏻🤚🏻baki lala bss smjhna ye hai ke dahej dena hai ya Lena kuki tmhare hone vale marad ke pass 80 lakh rupe hain 🥹🥹😂😂🥲🥲🤩🤩🤩🤩🥳🥳🥳tmhe khush rkhega voh roz tmhare liye ek phunsi phodega sirf tmhare khatir krega voh ye 🥹🥹or me tmhari shadi me bilkul nhi rounga kuki mera faeyda sale ko bhi paise dega or tm kisi trah mere ghr ke pass ajaogi 🤣🤣🤣🙌🏻🙌🏻🙌🏻fir apn Rehan ko topi pinake ghumne jaya krenge 🥹🥹💋💋💋❤️❤️</p>
+      <div class="cover">
+          <p>Again,</p>
+      </div>
+     </div>
+<div class="button-container">
+  <a href="about4.html"><button class="button-3d">
+    <div class="button-top">
+      <span class="material-icons">❮</span>
+    </div>
+    <div class="button-bottom"></div>
+    <div class="button-base"></div>
+  </button></a>
+  <a href="Ending.html"><button class="button-3d">
+    <div class="button-top">
+      <span class="material-icons">❯</span>
+    </div>
+    <div class="button-bottom"></div>
+    <div class="button-base"></div>
+  </button></a>
+</div>
+
+</body>
+</html>

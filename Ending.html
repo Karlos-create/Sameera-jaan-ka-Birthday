@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* From Uiverse.io by Z4drus */ 
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.button-3d {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px;
+  min-width: 4em;
+  min-height: 4em;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.button-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 8px 16px;
+  transform: translateY(0);
+  color: #fff;
+  background-image: linear-gradient(145deg, #6a11cb, #2575fc);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  transition: transform 0.3s, border-radius 0.3s, background 10s;
+}
+
+.button-3d:active .button-top {
+  border-radius: 10px 10px 8px 8px / 8px;
+  transform: translateY(2px);
+  background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+}
+
+.button-bottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 20px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  transition: border-radius 0.2s, padding-top 0.2s;
+}
+
+.button-base {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  left: 0;
+  border-radius: 20px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 2px 2px rgba(0, 0, 0, 0.25);
+  transition: border-radius 0.2s, padding-top 0.2s;
+}
+
+.button-3d:active .button-bottom {
+  border-radius: 10px 10px 8px 8px / 8px;
+  padding-top: 0;
+}
+
+.button-3d:active .button-base {
+  border-radius: 10px 10px 8px 8px / 8px;
+}
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  --background: #28096b;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  transition: .5s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #fff000;
+  background: var(--background);
+  transition: .5s;
+}
+
+input:checked + .slider {
+  background-color: #522ba7;
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #fff000;
+}
+/*  */
+/* From Uiverse.io by Sharkotech */ 
+.card {
+  width: 150px; /* Reduced width */
+  height: 200px; /* Reduced height */
+  background: rgba(211, 211, 211, 0.199);
+  position: absolute;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+#c1 {
+  background-color: black;
+}
+
+#c2 {
+  background-color: blue;
+}
+
+#c3 {
+  background-color: red;
+}
+
+#c4 {
+  background-color: green;
+}
+
+.main:hover #c1 {
+  transform: translateX(-100px) rotate(-40deg);
+}
+
+.main:hover #c2 {
+  transform: translateX(-50px) rotate(-30deg);
+}
+
+.main:hover #c3 {
+  transform: translateX(0) rotate(-20deg);
+}
+
+.main:hover #c4 {
+  transform: translateX(50px) rotate(-10deg);
+}
+
+#c1:hover {
+  transform: translateX(-150px) rotate(0deg) !important;
+}
+
+#c2:hover {
+  transform: translateX(-100px) rotate(0deg) !important;
+}
+
+#c3:hover {
+  transform: translateX(-50px) rotate(0deg) !important;
+}
+
+#c4:hover {
+  transform: translateX(50px) rotate(0deg) !important;
+}
+
+.main {
+  display: grid;
+  height: 50vmax;
+  place-items: center;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 120px; /* Smaller size for mobile */
+    height: 160px;
+  }
+}
+/*  */
+.book {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 280px; /* Increased width */
+  height: 650px; /* Increased height */
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  transform: preserve-3d;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  margin: auto; /* Centers the card */
+  margin-top: 20px;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: rgb(251, 0, 188);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.7s; /* Smoother transition */
+  transform-origin: left center; /* Adjust the rotation axis */
+  box-shadow: 1px 1px 12px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.book:hover .cover {
+  transition: all 0.7s;
+  transform: rotateY(-180deg); /* Open the cover fully */
+}
+
+p {
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 10px;
+  overflow-y: auto; /* Add scrolling for text */
+  max-height: 90%; /* Constrain text height */
+  word-wrap: break-word; /* Ensure text breaks properly */
+  text-align: center; /* Center the text inside */
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 600px) {
+  .book {
+    width: 95%;
+    height: 650px; /* Adjusted height for mobile */
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+
+/* d */
+body{
+  background-color: #000;
+}
+
+</style>
+<body>
+<div class="container"></div>
+
+    <h1 >heklo</h1>
+    <div class="book">
+      <p>LAST BUT NOT LEAST,
+        Sameera me tmhare liye gye har ek faisle ki utni hi izzat karta hu jitni me tmhari karta hu ❤️🌎.bss Sameera khudko ab mazeed preshani mat do kisi us shaks ke peeche jo tmhe nhi chahta 🫴🏻.me janta hu sb smjhta hu sab lekin usse zada me tmhe smjhta hu ke ye tmhare mustaqbil ke liye sahi nhi 🥹🌹tm zrur smjhogi.
+        Baki koi baat nhi tmhare har ek faisle me tmhare sath sirf ye shamvill khan hoga chahe koi hona ho 🥹🌎🫴🏻kuki tm ho mera jigar , gurda phephda 🫁🫴🏻bass me yhi kehna chahunga ke tmhe kbhi kisi cheez ki bhi zarurat ho bss ek call shamvill khan ko Krna tmhare liye adhi raat khrab mausam ya betandrust jism me bhi hazir hojaunga🕊️🥀✨💕sirf tmhare liye .
+        ONCE AGAIN I WANNA SAY HAPPIEST BIRTHDAY SAMEERAA LOVE 🌎🕊️❤️. LIVE YOUNG, LAUGH YOUNGER 🕊️❤️</p>
+      <div class="cover">
+          <p>And again.</p>
+      </div>
+     </div>
+<div class="button-container">
+  <a href="about5.html"><button class="button-3d">
+    <div class="button-top">
+      <span class="material-icons">❮</span>
+    </div>
+    <div class="button-bottom"></div>
+    <div class="button-base"></div>
+  </button></a>
+
+</div>
+
+<script>
+    let color="light";
+    document.querySelector("#inp").addEventListener("click",()=>{
+        console.log("helo olor")
+        if(color==="dark"){
+            document.body.style.backgroundColor=""
+            color="light";
+        }else{
+            document.body.style.backgroundColor="#111"
+            color="dark"; 
+        }
+    })
+</script>
+</body>
+</html>

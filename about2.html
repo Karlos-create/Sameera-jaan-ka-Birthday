@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color: rgb(255, 242, 0);
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between cards */
+            justify-content: center;
+            max-width: 100%;
+            padding: 20px;
+            margin-bottom: 20px; /* Add space below the card container */
+        }
+
+        .card {
+            position: relative;
+            width: 190px;
+            height: 254px;
+            color: #fff;
+            transition: 0.5s;
+            cursor: pointer;
+            transform: rotateX(-55deg) rotateY(15deg) rotateZ(60deg);
+            overflow: hidden; /* Hide overflow to maintain card shape */
+        }
+
+        .card:hover {
+            transform: rotate(0);
+        }
+
+        .card:active {
+            transform: translateY(-20px) rotate(-3deg);
+            scale: 0.95;
+        }
+
+        .card::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(315deg, #03a9f4, #ff0058);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(315deg, #03a9f4, #ff0058);
+            filter: blur(30px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the card */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .card .content {
+            position: relative;
+            padding: 10px;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5em;
+            text-align: center;
+            color: white; /* Ensure text is visible */
+        }
+
+        .hed {
+            color: rgb(155, 3, 155);
+            margin-left: 4px;
+        }
+
+        .hed:hover {
+            color: red;
+        }
+
+        /* From Uiverse.io by doniaskima */ 
+        .btn-17,
+        .btn-17 *,
+        .btn-17 :after,
+        .btn-17 :before,
+        .btn-17:after,
+        .btn-17:before {
+            border: 0 solid;
+            box-sizing: border-box;
+        }
+
+        .btn-17 {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-appearance: button;
+            background-color: #000;
+            background-image: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 100%;
+            font-weight: 900;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+            border-radius: 99rem;
+            border-width: 2px;
+            padding: 0.8rem 2rem; /* Adjusted padding */
+            z-index: 0;
+        }
+
+        .btn-17,
+        .btn-17 .text-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .btn-17 .text-container {
+            display: block;
+            mix-blend-mode: difference;
+        }
+
+        .btn-17 .text {
+            display: block;
+            position: relative;
+        }
+
+        .btn-17:hover .text {
+            -webkit-animation: move-up-alternate 0.3s forwards;
+            animation: move-up-alternate 0.3s forwards;
+        }
+
+        @-webkit-keyframes move-up-alternate {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(80%);
+            }
+
+            51% {
+                transform: translateY(-80%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes move-up-alternate {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(80%);
+            }
+
+            51% {
+                transform: translateY(-80%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .btn-17:after,
+        .btn-17:before {
+            --skew: 0.2;
+            background: #fff;
+            content: "";
+            display: block;
+            height: 102%;
+            left: calc(-50% - 50% * var(--skew));
+            pointer-events: none;
+            position: absolute;
+            top: -104%;
+            transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
+            transition: transform 0.2s ease;
+            width: 100%;
+        }
+
+        .btn-17:after {
+            --progress: 0%;
+            left: calc(50% + 50% * var(--skew));
+            top: 102%;
+            z-index: -1;
+        }
+
+        .btn-17:hover:before {
+            --progress: 100%;
+        }
+
+        .btn-17:hover:after {
+            --progress: -102%;
+        }
+
+        /* Adjustments for mobile screens */
+        @media (max-width: 768px) {
+            .card {
+                width: 150px; /* Smaller card size */
+                height: 200px;
+            }
+
+            .card .content {
+                font-size: 1.2em; /* Adjust font size for smaller screens */
+            }
+
+            .btn-17 {
+                font-size: 0.9em; /* Smaller font size for button */
+                padding: 0.6rem 1.5rem; /* Smaller padding for button */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 120px; /* Even smaller card size for very small screens */
+                height: 170px;
+            }
+
+            .card .content {
+                font-size: 1em; /* Smaller font size */
+            }
+
+            .btn-17 {
+                font-size: 0.8em; /* Even smaller button text */
+                padding: 0.5rem 1rem; /* Smaller padding */
+            }
+        }
+        
+    </style>
+</head>
+<body><br><br><br>
+<i><h1 class="hed">Another year older, but still a kid at heart!</h1></i><br>
+<i><h1>Hover them : )</h1></i>
+    <div class="card-container">
+        <div class="card">
+            <img src="img/kr.jpg" alt="Image 1">
+            <div class="content">Hover Me : )</div>
+        </div>
+        <div class="card">
+            <img src="img/45.jpg" alt="Image 2">
+            <div class="content">Hover Me : )</div>
+        </div>
+        <div class="card">
+           <img src="img/41.jpg" alt="Image 3">
+            <div class="content">Hover Me : )</div>
+        </div>
+        <div class="card">
+            <img src="img/IMG-20240227-WA0008.jpg" alt="Image 3">
+            <div class="content">Hover Me : )</div>
+        </div>
+    </div>
+
+   <a href="funto.html"> <button class="btn-17">
+        <span class="text-container">
+            <span class="text">Please</span>
+        </span>
+    </button></a>
+</body>
+</html>
